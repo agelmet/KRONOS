@@ -1,0 +1,16 @@
+{
+ "source": {
+  "kind": "file",
+  "ref": "assets/img/kronos-bau-icon.svg"
+ },
+ "source_md5": "224882b4ccf683af91f2dbcf1edda718",
+ "version": "17db1cdd",
+ "tile": null,
+ "crop": null,
+ "header": [
+  "inline",
+  "index.html",
+  "8f59b8fc9ba0f89234f27ea7e532e3bc"
+ ],
+ "made": "2026-11-20"
+}
