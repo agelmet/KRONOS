@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Το πάνελ μου · KRONOS BAU GmbH</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F2F3F5">
+<link rel="icon" href="favicon.ico">
+<style id="fonts">@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/manrope-greek-700-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/manrope-greek-800-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/manrope-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/manrope-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<style>
+:root{--paper:#F2F3F5;--sand:#E7EAEE;--ink:#0F1A2B;--mut:#5E6878;--deep:#0B1424;--sea:#13213A;--amber:#F07A1A;--amber-t:#B9560A;--line:rgba(15,26,43,.13);--ok:#1E8E5A;--bad:#C2412D;--r:16px;--sh:0 1px 2px rgba(13,24,32,.06),0 8px 22px rgba(13,24,32,.08);color-scheme:light only}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Manrope',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.5;color:var(--ink);background:var(--paper);min-height:100vh;padding-bottom:120px;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.wrap{width:min(860px,100% - 28px);margin:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:16px;transition:transform .15s,opacity .2s}
+.btn:active{transform:scale(.97)}
+.btn-a{background:var(--amber);color:#160A00}
+.btn-g{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-x{background:#fff;color:var(--bad);box-shadow:inset 0 0 0 1.5px rgba(194,65,45,.35)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.mk{width:40px;height:40px}
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:24px}
+.lg-card{width:min(420px,100%);background:#fff;border-radius:24px;padding:34px 28px;box-shadow:var(--sh);text-align:center}
+.lg-card .mk{width:56px;height:56px;margin:0 auto 14px}
+.lg-card h1{font-size:24px;margin-bottom:6px}
+.lg-card p{color:var(--mut);margin-bottom:22px}
+.lg-card input{width:100%;height:58px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);text-align:center;font-size:26px;letter-spacing:.4em;font-weight:700;margin-bottom:14px}
+.lg-card input:focus{outline:none;border-color:var(--amber)}
+.lg-card .btn{width:100%}
+.lg-err{color:var(--bad);font-weight:600;min-height:24px;margin-top:10px}
+.lg-rem{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:var(--mut);font-size:14px}
+.lg-rem input{width:20px;height:20px;margin:0;accent-color:var(--ink)}
+.trial{margin-top:16px;padding:10px 12px;border-radius:12px;background:#FFF2C6;color:#5a4500;font-size:14px}
+/* app */
+#app[hidden],#login[hidden]{display:none}
+.top{position:sticky;top:0;z-index:20;background:rgba(242,243,245,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:12px;height:64px}
+.home{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none;padding:0!important}.home:hover{background:none!important}
+.top b{font-size:17px;line-height:1.1}.top small{display:block;font-size:12.5px;color:var(--mut);font-weight:400}
+.top .sp{flex:1}
+.top a,.top .lnk{text-decoration:none;font-weight:700;font-size:14px;padding:10px 12px;border-radius:10px}
+.top a:hover,.top .lnk:hover{background:#fff}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:16px 0 6px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex-shrink:0;display:flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;background:#fff;box-shadow:var(--sh);font-weight:700}
+.tabs button i{font-style:normal;font-size:13px;min-width:24px;height:24px;padding:0 6px;border-radius:12px;background:var(--sand);display:grid;place-items:center}
+.tabs button.on{background:var(--ink);color:#fff}.tabs button.on i{background:var(--amber);color:var(--ink)}
+.help{margin:14px 0 4px;padding:14px 16px;border-radius:14px;background:#fff;box-shadow:var(--sh);font-size:14.5px;color:#3d3b36;display:flex;gap:12px;align-items:flex-start}
+.help b{color:var(--ink)}
+.help .x{margin-left:auto;font-size:22px;line-height:1;color:var(--mut);padding:0 4px}
+.add{width:100%;min-height:62px;margin:16px 0 14px;border-radius:var(--r);border:2px dashed rgba(21,22,28,.22);background:transparent;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--ink)}
+.add span{font-size:26px;line-height:1;color:var(--amber-t)}
+.list{display:grid;gap:12px}
+.item{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:12px;border-radius:var(--r);background:#fff;box-shadow:var(--sh);align-items:start}
+.item.off{opacity:.62}
+.thumb{width:96px;height:72px;border-radius:10px;background:linear-gradient(160deg,#F6C27A,#E98F5A 46%,#1C6B7E 47%,#0B3442);background-size:cover;background-position:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.it-t{font-weight:700;font-size:16.5px;line-height:1.25}
+.it-m{font-size:14px;color:var(--mut);margin-top:3px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.bd{font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:#E3F3EA;color:var(--ok)}
+.bd.hid{background:#EFECE6;color:var(--mut)}.bd.exp{background:#FBE5DF;color:var(--bad)}.bd.new{background:#FFF2C6;color:#6b5100}
+.acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid var(--line);padding-top:10px}
+.acts button{min-height:40px;padding:0 12px;border-radius:10px;background:var(--paper);font-weight:600;font-size:14px;display:flex;align-items:center;gap:6px}
+.acts .ed{background:var(--ink);color:#fff}
+.acts .dl{color:var(--bad);margin-left:auto}
+.empty{padding:30px;text-align:center;color:var(--mut);background:#fff;border-radius:var(--r)}
+/* bottom bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 -6px 24px rgba(13,24,32,.1)}
+.bar-in{width:min(860px,100%);margin:auto;display:flex;align-items:center;gap:12px}
+.bar-s{flex:1;font-size:14.5px;font-weight:600;line-height:1.3}
+.bar-s small{display:block;font-weight:400;color:var(--mut)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--ok);margin-right:6px}
+.dot.w{background:var(--amber)}
+/* editor sheet */
+.sheet{position:fixed;inset:0;z-index:50;background:var(--paper);overflow-y:auto;transform:translateY(100%);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.sheet.open{transform:none}
+.sheet[hidden]{display:none}
+.sh-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;height:62px;padding:0 14px;background:rgba(242,243,245,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.sh-top b{flex:1;font-size:17px}
+.sh-x{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:22px;box-shadow:var(--sh)}
+.form{padding:18px 0 140px}
+.fs{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:18px 16px;margin-bottom:14px}
+.fs h3{font-size:15px;letter-spacing:.04em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.fs h3 i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--amber);font-size:13px}
+label.f{display:block;margin-bottom:14px}
+label.f>span{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px}
+label.f>span em{font-style:normal;font-weight:400;color:var(--mut)}
+.f input[type=text],.f input[type=date],.f textarea,.f select{width:100%;min-height:50px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);padding:12px 14px;font-size:16px}
+.f textarea{min-height:120px;resize:vertical;line-height:1.5}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--amber);background:#fff}
+.hint{font-size:13px;color:var(--mut);margin-top:5px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg button{min-height:52px;border-radius:12px;background:var(--paper);font-weight:700;font-size:14.5px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.seg button.on{background:var(--ink);color:#fff;box-shadow:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips button{min-height:38px;padding:0 14px;border-radius:999px;background:var(--paper);font-size:14px;font-weight:600;box-shadow:inset 0 0 0 1.5px var(--line)}
+.photo{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:var(--paper);box-shadow:inset 0 0 0 2px dashed var(--line);display:grid;place-items:center;text-align:center;color:var(--mut);font-weight:600}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo .ph-e{padding:20px;border:2px dashed rgba(21,22,28,.2);border-radius:14px;position:absolute;inset:0;display:grid;place-items:center}
+.ph-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ph-btns label,.ph-btns button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:12px;background:var(--ink);color:#fff;font-weight:700;font-size:15px;cursor:pointer}
+.ph-btns .g{background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.ph-btns input{display:none}
+.prog{height:6px;border-radius:3px;background:var(--sand);overflow:hidden;margin-top:10px}
+.prog i{display:block;height:100%;width:0;background:var(--amber);transition:width .2s}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:12px}
+.gal button{aspect-ratio:16/10;border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 2px transparent}
+.gal button.on{box-shadow:0 0 0 3px var(--amber)}
+.gal img{width:100%;height:100%;object-fit:cover}
+.tog{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
+.tog b{font-size:15px}.tog small{display:block;color:var(--mut);font-weight:400;font-size:13px}
+.sw{position:relative;width:56px;height:32px;flex-shrink:0}
+.sw input{opacity:0;width:100%;height:100%;position:absolute;margin:0;cursor:pointer}
+.sw i{position:absolute;inset:0;border-radius:16px;background:#CFCAC0;transition:background .2s;pointer-events:none}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .2s}
+.sw input:checked+i{background:var(--ok)}.sw input:checked+i::after{transform:translateX(24px)}
+details.en{margin-top:4px}
+details.en summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center;gap:8px;list-style:none}
+details.en summary::-webkit-details-marker{display:none}
+details.en summary::before{content:"+";display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--sand)}
+details.en[open] summary::before{content:"–"}
+.pv{border:0;width:100%;height:600px;border-radius:var(--r);background:var(--sand);box-shadow:var(--sh)}
+.sh-bar{position:fixed;left:0;right:0;bottom:0;z-index:3;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -6px 24px rgba(13,24,32,.1);display:flex;gap:10px;justify-content:center}
+.sh-bar .btn{flex:1;max-width:420px}
+/* dialog + toast */
+.dlg{position:fixed;inset:0;z-index:80;background:rgba(13,24,32,.5);display:grid;place-items:center;padding:20px}
+.dlg[hidden]{display:none}
+.dlg-c{width:min(400px,100%);background:#fff;border-radius:22px;padding:26px 22px;text-align:center}
+.dlg-c h4{font-size:19px;margin-bottom:8px}.dlg-c p{color:var(--mut);margin-bottom:20px}
+.dlg-c .row{display:flex;gap:10px}.dlg-c .row .btn{flex:1}
+.toast{position:fixed;left:50%;bottom:110px;z-index:90;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-weight:600;font-size:15px;transition:all .3s;max-width:92vw;text-align:center;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.set .fs p{color:var(--mut);font-size:14.5px;margin-bottom:12px}
+@media (max-width:560px){.top small,.top .sp{display:none}.top-in>.home{flex:1}.top b{font-size:16px}.top a,.top .lnk{padding:8px 8px;font-size:13.5px}.top a .lg{display:none}}
+@media (min-width:700px){.item{grid-template-columns:130px 1fr}.thumb{width:130px;height:86px}}
+
+[hidden]{display:none!important}
+.mk{width:46px;height:40px}.lg-card .mk{width:66px;height:58px}
+.addrow{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0 14px}
+.addrow .add{margin:0;cursor:pointer}
+.addrow:has(#addmany:not([hidden])){grid-template-columns:1fr 1fr}
+.add.sm{font-size:15px}
+.add em{font-style:normal}
+.list.grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.item .it-t{word-break:break-word}
+.lang{background:#FFF4E8;border-radius:12px;padding:10px 12px;margin:0 0 14px;color:#5a3a12}
+.phs{display:grid;gap:10px}
+.phi{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center;background:var(--paper);border-radius:12px;padding:8px}
+.phi img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+.phi div{display:flex;flex-wrap:wrap;gap:6px}
+.phi button{min-height:40px;min-width:44px;padding:0 12px;border-radius:10px;background:#fff;font-weight:700}
+.phi .rm{color:var(--bad)}
+.photo{aspect-ratio:3/2}
+.photo img{object-fit:contain;background:var(--sand)}
+.wide{width:100%;margin-top:6px}
+.f input[type=email]{width:100%;min-height:50px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);padding:12px 14px;font-size:16px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="km" viewBox="0 0 120 104"><g class="b b1"><polygon points="45,54 54,50 54,88 45,88" fill="var(--mkb,#13213A)"/><g stroke="var(--mkr,#fff)" stroke-width="1.5" stroke-linecap="round"><line x1="46" y1="62.6" x2="53" y2="58.8"/><line x1="46" y1="68.8" x2="53" y2="65.0"/><line x1="46" y1="75.0" x2="53" y2="71.2"/><line x1="46" y1="81.2" x2="53" y2="77.4"/><line x1="46" y1="87.4" x2="53" y2="83.60000000000001"/></g></g><g class="b b2"><polygon points="57,42 66,38 66,88 57,88" fill="var(--mkb,#13213A)"/><g stroke="var(--mkr,#fff)" stroke-width="1.5" stroke-linecap="round"><line x1="58" y1="50.6" x2="65" y2="46.8"/><line x1="58" y1="56.800000000000004" x2="65" y2="53.0"/><line x1="58" y1="63.00000000000001" x2="65" y2="59.2"/><line x1="58" y1="69.2" x2="65" y2="65.4"/><line x1="58" y1="75.4" x2="65" y2="71.60000000000001"/><line x1="58" y1="81.60000000000001" x2="65" y2="77.80000000000001"/><line x1="58" y1="87.80000000000001" x2="65" y2="84.00000000000001"/></g></g><g class="b b3"><polygon points="69,28 78,24 78,88 69,88" fill="var(--mkb,#13213A)"/><g stroke="var(--mkr,#fff)" stroke-width="1.5" stroke-linecap="round"><line x1="70" y1="36.6" x2="77" y2="32.8"/><line x1="70" y1="42.800000000000004" x2="77" y2="39.0"/><line x1="70" y1="49.00000000000001" x2="77" y2="45.2"/><line x1="70" y1="55.20000000000001" x2="77" y2="51.400000000000006"/><line x1="70" y1="61.40000000000001" x2="77" y2="57.60000000000001"/><line x1="70" y1="67.60000000000001" x2="77" y2="63.80000000000001"/><line x1="70" y1="73.80000000000001" x2="77" y2="70.00000000000001"/><line x1="70" y1="80.00000000000001" x2="77" y2="76.20000000000002"/><line x1="70" y1="86.20000000000002" x2="77" y2="82.40000000000002"/></g></g><path d="M6 101 Q60 76 114 101 Q60 83 6 101Z" fill="var(--mko,#F07A1A)"/></symbol></defs></svg>
+
+<section id="login">
+ <div class="lg-card">
+  <svg class="mk" style="--mkb:#13213A;--mkr:#fff"><use href="#km"/></svg>
+  <h1>Το πάνελ μου</h1>
+  <p>KRONOS BAU GmbH — γράψτε τον κωδικό σας</p>
+  <form id="lgf" autocomplete="off">
+   <input id="pass" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="12" aria-label="Κωδικός" placeholder="••••••">
+   <button class="btn" type="submit">Είσοδος</button>
+   <label class="lg-rem"><input type="checkbox" id="rem"> Να με θυμάται αυτή η συσκευή</label>
+   <div class="lg-err" id="lgerr" role="alert"></div>
+  </form>
+  <div class="trial" id="trialnote" hidden>Αυτή είναι η <b>δοκιμαστική</b> έκδοση: οι αλλαγές σας φαίνονται μόνο σε αυτή τη συσκευή, μέχρι να ανέβει η ιστοσελίδα στο τελικό της domain.</div>
+ </div>
+</section>
+
+<section id="app" hidden>
+ <header class="top"><div class="wrap top-in">
+  <a href="#" id="home" class="home" aria-label="Αρχή του πάνελ"><svg class="mk" style="--mkb:#13213A;--mkr:#fff"><use href="#km"/></svg>
+  <div><b>Η ιστοσελίδα μου</b><small>KRONOS BAU GmbH</small></div></a>
+  <span class="sp"></span>
+  <a href="./" target="_blank" rel="noopener">Η σελίδα<span class="lg"> μου</span> ↗</a>
+  <button class="lnk" id="logout" type="button">Έξοδος</button>
+ </div></header>
+ <main class="wrap">
+  <nav class="tabs" id="tabs">
+   <button data-k="gallery" class="on">Φωτογραφίες <i>0</i></button>
+   <button data-k="projects">Έργα <i>0</i></button>
+   <button data-k="jobs">Θέσεις εργασίας <i>0</i></button>
+   <button data-k="set">Στοιχεία</button>
+  </nav>
+  <div class="help" id="help"><div id="helpt"></div><button class="x" id="helpx" aria-label="Κλείσιμο">×</button></div>
+  <div id="pane-list">
+   <div class="addrow">
+    <button class="add" id="add" type="button"><span>+</span> <em id="addt">Νέο</em></button>
+    <label class="add" id="addmany" hidden><span>+</span> Προσθήκη φωτογραφιών<input type="file" id="many" accept="image/*" multiple hidden></label>
+   </div>
+   <div class="prog" id="mprog" hidden><i></i></div>
+   <div class="list" id="list"></div>
+  </div>
+  <div id="pane-set" class="set" hidden>
+   <div class="fs" style="margin-top:16px"><h3>Επικοινωνία</h3>
+    <p>Φαίνονται στην ενότητα «Kontakt», στο κάτω μέρος της σελίδας και στο Impressum.</p>
+    <label class="f"><span>E-mail</span><input type="email" id="sEmail" data-p="contact.email" inputmode="email" autocomplete="off"></label>
+    <label class="f"><span>Τηλέφωνο <em>(αν μείνει κενό, δεν φαίνεται)</em></span><input type="text" id="sPhone" data-p="contact.phone" inputmode="tel" placeholder="π.χ. +49 171 1234567"></label>
+   </div>
+   <div class="fs"><h3>Στοιχεία εταιρείας — Impressum</h3>
+    <p>Στη Γερμανία ο νόμος ζητά αυτά τα στοιχεία σε κάθε εταιρική ιστοσελίδα. Τα βρίσκετε στο Handelsregister της εταιρείας σας.</p>
+    <label class="f"><span>Διεύθυνση εταιρείας <em>(Anschrift)</em></span><input type="text" data-p="legal.addr" placeholder="π.χ. Hauptstraße 1, 66538 Neunkirchen"></label>
+    <label class="f"><span>Διαχειριστής <em>(Geschäftsführer)</em></span><input type="text" data-p="legal.gf" placeholder="Όνομα και επώνυμο"></label>
+    <label class="f"><span>Δικαστήριο μητρώου <em>(Registergericht)</em></span><input type="text" data-p="legal.court" placeholder="π.χ. Amtsgericht Saarbrücken"></label>
+    <label class="f"><span>Αριθμός μητρώου <em>(HRB)</em></span><input type="text" data-p="legal.hrb" placeholder="π.χ. HRB 123456"></label>
+    <label class="f"><span>ΑΦΜ ΕΕ <em>(USt-IdNr.)</em></span><input type="text" data-p="legal.ustid" placeholder="π.χ. DE123456789"></label>
+   </div>
+   <div class="fs"><h3>Κάτι πήγε στραβά;</h3>
+    <p>Επαναφέρει τη σελίδα όπως ήταν πριν από την τελευταία «Δημοσίευση».</p>
+    <button class="btn btn-g" id="undo" type="button">Αναίρεση τελευταίας δημοσίευσης</button>
+    <p style="margin-top:16px">Πετάει τις αλλαγές που δεν έχετε δημοσιεύσει ακόμη και φέρνει ό,τι υπάρχει τώρα στη σελίδα.</p>
+    <button class="btn btn-x" id="discard" type="button">Ακύρωση αλλαγών που δεν δημοσιεύτηκαν</button>
+   </div>
+  </div>
+ </main>
+ <div class="bar"><div class="bar-in">
+  <div class="bar-s" id="bars"><span class="dot"></span>Όλα δημοσιευμένα</div>
+  <button class="btn btn-a" id="publish" type="button" disabled>Δημοσίευση</button>
+ </div></div>
+</section>
+
+<section class="sheet" id="sheet" hidden aria-modal="true" role="dialog" aria-labelledby="shT">
+ <div class="sh-top"><button class="sh-x" id="shx" type="button" aria-label="Κλείσιμο">×</button><b id="shT"></b></div>
+ <div class="wrap form" id="form"></div>
+ <div class="sh-bar"><button class="btn btn-g" id="shcancel" type="button">Ακύρωση</button><button class="btn" id="shsave" type="button">Αποθήκευση</button></div>
+</section>
+
+<div class="dlg" id="dlg" hidden><div class="dlg-c"><h4 id="dlgT"></h4><p id="dlgP"></p><div class="row"><button class="btn btn-g" id="dlgN" type="button">Όχι</button><button class="btn" id="dlgY" type="button">Ναι</button></div></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script type="application/json" id="baked">{"updated": "2026-11-21T12:00:00.000Z", "contact": {"email": "info@kronos-bau.de", "phone": "", "addr": ""}, "legal": {"gf": "", "addr": "", "court": "", "hrb": "", "ustid": ""}, "projects": [{"id": "p1", "t": "Neubau Hauptstelle Sparkasse Neunkirchen", "te": "New head office of Sparkasse Neunkirchen", "txt": "Eine unserer Baustellen: der Neubau der Hauptstelle der Sparkasse Neunkirchen mit Parkdeck – ein geschwungener Baukörper mitten in Neunkirchen (Saar).", "txte": "One of our sites: the new head office of Sparkasse Neunkirchen with a car park deck – a curved building in the centre of Neunkirchen (Saarland).", "loc": "Bahnhofstraße 48–50, Neunkirchen (Saar)", "loce": "", "type": "Bankgebäude mit Parkdeck", "typee": "Bank head office with car park deck", "part": "Bewehrungsarbeiten", "parte": "Reinforcement works", "imgs": [{"src": "kronos-bau-bewehrung-sparkasse-neunkirchen", "w": 1600, "h": 720, "big": true, "alt": "Rohbau der neuen Hauptstelle der Sparkasse Neunkirchen mit Gerüst", "alte": "Shell of the new Sparkasse Neunkirchen head office with scaffolding"}, {"src": "kronos-bau-bewehrung-sparkasse-neunkirchen-strasse", "w": 1600, "h": 720, "big": true, "alt": "Baustelle der Sparkasse Neunkirchen von der Bahnhofstraße aus", "alte": "The Sparkasse Neunkirchen site seen from Bahnhofstraße"}]}], "gallery": [{"id": "g01", "src": "kronos-bau-bewehrung-rohbau-hochhaus", "w": 1600, "h": 777, "big": true, "cap": "Rohbau", "cape": "Shell", "alt": "Rohbau eines mehrgeschossigen Gebäudes mit Gerüst und Kran", "alte": "Multi-storey shell with scaffolding and crane"}, {"id": "g02", "src": "kronos-bau-bewehrung-buerohaus-rohbau", "w": 778, "h": 1600, "big": true, "cap": "Bürobau", "cape": "Office building", "alt": "Büroturm im Rohbau mit zwei Turmdrehkranen", "alte": "Office tower under construction with two tower cranes"}, {"id": "g03", "src": "kronos-bau-bewehrung-deckenfeld", "w": 1600, "h": 777, "big": true, "cap": "Deckenfeld", "cape": "Floor bay", "alt": "Deckenfeld mit Bewehrung neben dem Rohbau", "alte": "Floor bay with reinforcement next to the shell"}, {"id": "g04", "src": "kronos-bau-bewehrung-kreuzbewehrung", "w": 1600, "h": 777, "big": true, "cap": "Kreuzbewehrung", "cape": "Crosswise layers", "alt": "Kreuzweise verlegte Bewehrung einer großen Platte", "alte": "Cross-laid reinforcement of a large slab"}, {"id": "g05", "src": "kronos-bau-bewehrung-wohnbau-geruest", "w": 1080, "h": 1350, "big": true, "cap": "Wohnbau", "cape": "Residential", "alt": "Wohnbau zwischen zwei eingerüsteten Gebäudeteilen mit Kran", "alte": "Residential building between two scaffolded wings"}, {"id": "g06", "src": "kronos-bau-bewehrung-baustelle-krane", "w": 1280, "h": 960, "big": true, "cap": "Großbaustelle", "cape": "Large site", "alt": "Großbaustelle mit Kran und Bewehrung im Untergeschoss", "alte": "Large site with crane and basement reinforcement"}, {"id": "g07", "src": "kronos-bau-bewehrung-mattenbewehrung", "w": 1600, "h": 777, "big": true, "cap": "Matten", "cape": "Mesh", "alt": "Mattenbewehrung auf einer Bodenplatte vor einem Hotelneubau", "alte": "Mesh reinforcement on a slab in front of a new building"}, {"id": "g08", "src": "kronos-bau-bewehrung-hebebuehne-wand", "w": 720, "h": 960, "big": false, "cap": "Wand in der Höhe", "cape": "Wall at height", "alt": "Eisenflechter auf der Hebebühne an einer hohen Wandbewehrung", "alte": "Rebar fixer on a scissor lift at a tall wall"}, {"id": "g09", "src": "kronos-bau-bewehrung-flaechenbewehrung", "w": 1600, "h": 720, "big": true, "cap": "Flächenbewehrung", "cape": "Area reinforcement", "alt": "Weite Flächenbewehrung vor einer Wohnsiedlung", "alte": "Wide area reinforcement in front of a housing estate"}, {"id": "g10", "src": "kronos-bau-bewehrung-buerohaus-fertigstellung", "w": 778, "h": 1600, "big": true, "cap": "Bürogebäude", "cape": "Office building", "alt": "Fertiggestellter Rohbau eines Bürogebäudes", "alte": "Completed shell of an office building"}, {"id": "g11", "src": "kronos-bau-bewehrung-schalung-bewehrung", "w": 1600, "h": 777, "big": true, "cap": "Fundament", "cape": "Foundation", "alt": "Eisenflechter an einer Fundamentschalung mit Bewehrung", "alte": "Rebar fixers at a foundation formwork"}, {"id": "g12", "src": "kronos-bau-bewehrung-tiefgarage-decke", "w": 1600, "h": 720, "big": true, "cap": "Tiefgarage", "cape": "Car park", "alt": "Bewehrte Fläche einer Tiefgaragendecke", "alte": "Reinforced area of an underground car park slab"}, {"id": "g13", "src": "kronos-bau-bewehrung-baustelle-wohnbau", "w": 720, "h": 1600, "big": true, "cap": "Wohnbau", "cape": "Residential", "alt": "Wohnbau-Baustelle mit Kranhub und Bewehrung", "alte": "Residential site with crane lift and reinforcement"}, {"id": "g14", "src": "kronos-bau-bewehrung-abendschicht", "w": 1600, "h": 777, "big": true, "cap": "Abendschicht", "cape": "Evening shift", "alt": "Eisenflechter bei Abendlicht auf der Bewehrung", "alte": "Rebar fixer on the reinforcement in evening light"}, {"id": "g15", "src": "kronos-bau-bewehrung-wand-anschluss", "w": 1600, "h": 720, "big": true, "cap": "Wandanschlüsse", "cape": "Wall starters", "alt": "Wandanschlüsse an einem Gebäude in Rundbauweise", "alte": "Wall connections on a curved building"}, {"id": "g16", "src": "kronos-bau-bewehrung-obere-lage", "w": 1600, "h": 777, "big": true, "cap": "Obere Lage", "cape": "Top layer", "alt": "Obere Lage einer Bewehrung mit Stoßstellen", "alte": "Top layer of reinforcement with laps"}, {"id": "g17", "src": "kronos-bau-bewehrung-bauleitung", "w": 1200, "h": 1600, "big": true, "cap": "Baugrube", "cape": "Excavation", "alt": "Bauleiter vor einer Baugrube mit Bewehrung", "alte": "Site supervisor in front of a reinforced excavation"}, {"id": "g18", "src": "kronos-bau-bewehrung-bodenplatte-weit", "w": 1600, "h": 720, "big": true, "cap": "Bodenplatte", "cape": "Base slab", "alt": "Großflächige Bodenplatte unter blauem Himmel", "alte": "Large base slab under a blue sky"}, {"id": "g19", "src": "kronos-bau-bewehrung-kran-hub", "w": 1600, "h": 720, "big": true, "cap": "Kranhub", "cape": "Crane lift", "alt": "Turmdrehkran hebt Bewehrung auf die Baustelle", "alte": "Tower crane lifting reinforcement onto the site"}, {"id": "g20", "src": "kronos-bau-bewehrung-baugrube-gegenlicht", "w": 720, "h": 1600, "big": true, "cap": "Gegenlicht", "cape": "Backlight", "alt": "Baugrube im Gegenlicht mit Bewehrung", "alte": "Excavation with reinforcement against the light"}], "jobs": []}</script>
+<script>/* KRONOS BAU — renderer for the parts Ferit edits in his panel (projects, photos, jobs, phone).
+   The SAME code runs at build time (node: bakes the HTML Google reads), on the page (shows what the
+   panel published) and in the panel (preview). L = 'de' | 'en'. */
+(function (root) {
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function pick(de, en, L) { return L === 'en' && en ? en : (de || ''); }
+  /* text node with its English twin in data-en (mk_en / the toggle bake it) */
+  function T(tag, de, en, L, attrs) {
+    var v = pick(de, en, L);
+    return '<' + tag + (attrs ? ' ' + attrs : '') + ' data-en="' + esc(en || de || '') + '">' + esc(v) + '</' + tag + '>';
+  }
+  function isLocal(src) { return src && !/[\/:]/.test(src); }
+  function full(im) { return isLocal(im.src) ? 'assets/img/' + im.src + '-' + (im.big ? '1600' : '800') + '.webp' : im.src; }
+  function img(im, sizes, L, cls) {
+    var alt = pick(im.alt, im.alte, L) || '', alte = im.alte || im.alt || '';
+    var w = im.w || 1600, h = im.h || 1067, a = ' width="' + w + '" height="' + h + '" alt="' + esc(alt) + '" data-en-alt="' + esc(alte) + '"';
+    if (isLocal(im.src)) {
+      var s8 = Math.round(w * Math.min(1, 800 / Math.max(w, h)));
+      var ss = 'assets/img/' + im.src + '-800.webp ' + s8 + 'w' + (im.big ? ', assets/img/' + im.src + '-1600.webp ' + w + 'w' : '');
+      return '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="assets/img/' + im.src + '-800.webp" srcset="' + ss + '" sizes="' + sizes + '"' + a +
+        ' data-full="' + full(im) + '" loading="lazy" decoding="async">';
+    }
+    return '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="' + esc(im.src) + '"' + a + ' data-full="' + esc(im.src) + '" loading="lazy" decoding="async">';
+  }
+  function on(x) { return x && x.show !== false; }
+
+  /* ---- projects («Auf der Baustelle») ---- */
+  function project(p, i, L) {
+    var meta = '';
+    [['Ort', 'Location', p.loc, p.loce], ['Bauart', 'Type', p.type, p.typee], ['Unser Teil', 'Our part', p.part, p.parte]].forEach(function (m) {
+      if (m[2]) meta += '\n        <div>' + T('span', m[0], m[1], L) + T('p', m[2], m[3], L, 'style="margin:0"') + '</div>';
+    });
+    var ph = (p.imgs || []).filter(function (im) { return im && im.src; }).map(function (im) {
+      if (!im.alt) { im = Object.assign({}, im, { alt: p.t, alte: p.te || p.t }); }
+      return '\n      <figure><a href="' + esc(full(im)) + '" class="lbx">' + img(im, '(max-width:900px) 100vw, 60vw', L) + '</a></figure>';
+    }).join('');
+    return '\n  <div class="wrap g' + (i % 2 ? ' alt' : '') + '">\n    <div>\n      ' +
+      (i === 0 ? T('span', 'Auf der Baustelle', 'On site', L, 'class="k kline"') : T('span', 'Projekt', 'Project', L, 'class="k kline"')) + '\n      ' +
+      T('h2', p.t, p.te, L, 'class="h2 rv" style="margin:14px 0 18px"') + '\n      ' +
+      (p.txt ? T('p', p.txt, p.txte, L, 'class="lead rv"') : '') +
+      (meta ? '\n      <div class="meta rv">' + meta + '\n      </div>' : '') +
+      '\n    </div>\n    <div class="ph">' + ph + '\n    </div>\n  </div>';
+  }
+  function projects(c, L) {
+    var list = (c.projects || []).filter(on);
+    return list.map(function (p, i) { return project(p, i, L); }).join('') + '\n';
+  }
+
+  /* ---- photo gallery («Projekte») ---- */
+  function gallery(c, L) {
+    return (c.gallery || []).filter(function (g) { return on(g) && g.src; }).map(function (g) {
+      var r = Math.round((g.w || 3) / (g.h || 2) * 1000) / 1000;
+      var im = Object.assign({}, g, { alt: g.alt || g.cap || 'Baustelle der KRONOS BAU GmbH', alte: g.alte || g.cape || g.alt || g.cap || 'KRONOS BAU construction site' });
+      return '\n      <a href="' + esc(full(g)) + '" class="lbx" style="--r:' + r + '">' +
+        img(im, '(max-width:600px) 100vw, ' + Math.min(60, Math.round(r * 22)) + 'vw', L) +
+        (g.cap ? T('span', g.cap, g.cape, L, 'class="cap"') : '') + '</a>';
+    }).join('') + '\n    ';
+  }
+
+  /* ---- jobs («Wir stellen ein») — the section is hidden while there are none ---- */
+  function jobs(c, L) {
+    var list = (c.jobs || []).filter(on), mail = (c.contact && c.contact.email) || 'info@kronos-bau.de';
+    if (!list.length) return '';
+    var cards = list.map(function (j, i) {
+      var subj = encodeURIComponent((L === 'en' ? 'Application: ' : 'Bewerbung: ') + pick(j.t, j.te, L));
+      return '\n      <article class="job rv" style="transition-delay:' + (i * 70) + 'ms">' +
+        (j.meta ? T('p', j.meta, j.metae, L, 'class="jm"') : '') + T('h3', j.t, j.te, L) +
+        (j.txt ? T('p', j.txt, j.txte, L, 'class="jt"') : '') +
+        '<a class="btn btn-or" href="mailto:' + esc(mail) + '?subject=' + subj + '">' + T('span', 'Jetzt bewerben', 'Apply now', L) +
+        '<svg aria-hidden="true"><use href="#iar"/></svg></a></article>';
+    }).join('');
+    return '\n  <div class="wrap">\n    ' + T('span', 'Karriere', 'Careers', L, 'class="k kline"') + '\n    ' +
+      T('h2', 'Wir stellen ein', 'We are hiring', L, 'class="h2 rv" style="margin-top:14px"') + '\n    ' +
+      T('p', 'Werden Sie Teil unserer Kolonne. Schicken Sie uns eine kurze E-Mail mit Ihrer Erfahrung – wir melden uns.', 'Join our crew. Send us a short e-mail about your experience – we will get back to you.', L, 'class="lead rv" style="max-width:52ch"') +
+      '\n    <div class="jobs-g">' + cards + '\n    </div>\n  </div>\n';
+  }
+
+  /* ---- phone row in the contact card ---- */
+  function tel(c, L) {
+    var p = c.contact && c.contact.phone; if (!p) return '';
+    var href = 'tel:' + p.replace(/[^\d+]/g, '');
+    return '<div class="row"><svg aria-hidden="true"><use href="#itel"/></svg><div>' + T('small', 'Telefon', 'Phone', L) + '<a href="' + esc(href) + '">' + esc(p) + '</a></div></div>';
+  }
+
+  var api = { esc: esc, projects: projects, gallery: gallery, jobs: jobs, tel: tel, img: img, full: full, isLocal: isLocal };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.KPR = api;
+})(this);
+</script>
+<script>
+(function(){
+var d=document,$=function(id){return d.getElementById(id)};
+var HASH='05cec8afe5a12478ef6c5fa93459b7113f164b81b5653b27ff57bd2b2ef82804';
+var host=location.hostname, TRIAL=/drafts\.advonmedia\.com|github\.io|localhost|127\.0\.0\.1/.test(host);
+var PASS='', C=null, PUB=null, tab='gallery', ed=null, edIdx=-1;
+var LSW='kb-admin-work', LST='kb-admin-trial';
+var baked=JSON.parse($('baked').textContent);
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);return true}catch(e){return false}}
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function esc(s){return KPR.esc(s)}
+function toast(t){var el=$('toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on')},2800)}
+function ask(t,p,yes){$('dlgT').textContent=t;$('dlgP').textContent=p;$('dlgY').textContent=yes||'Ναι';$('dlg').hidden=false;return new Promise(function(res){$('dlgY').onclick=function(){$('dlg').hidden=true;res(true)};$('dlgN').onclick=function(){$('dlg').hidden=true;res(false)}})}
+async function sha(t){var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')}
+function uid(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,5)}
+function thumb(im){return im&&im.src?(KPR.isLocal(im.src)?'assets/img/'+im.src+'-800.webp':im.src):''}
+
+/* ---------- texts ---------- */
+var TAB={
+ gallery:{list:'gallery',add:'Μία φωτογραφία',empty:'Δεν υπάρχει καμία φωτογραφία ακόμα.',help:'<b>Φωτογραφίες:</b> είναι η ενότητα «Projekte» της σελίδας. Πατήστε «Προσθήκη φωτογραφιών» για να ανεβάσετε μία ή πολλές μαζί από το κινητό. Με ↑ ↓ αλλάζετε τη σειρά. Στο τέλος πατήστε το πορτοκαλί «Δημοσίευση».'},
+ projects:{list:'projects',add:'Νέο έργο',empty:'Δεν υπάρχει κανένα έργο ακόμα.',help:'<b>Έργα:</b> είναι η ενότητα «Auf der Baustelle» — ένα έργο με όνομα, λίγα λόγια και έως 4 φωτογραφίες. Το πρώτο της λίστας φαίνεται πρώτο στη σελίδα.'},
+ jobs:{list:'jobs',add:'Νέα θέση εργασίας',empty:'Δεν υπάρχει καμία θέση εργασίας. Όσο η λίστα είναι άδεια, η ενότητα «Wir stellen ein» δεν φαίνεται στη σελίδα.',help:'<b>Θέσεις εργασίας:</b> όταν ψάχνετε προσωπικό, προσθέστε μια θέση — εμφανίζεται η ενότητα «Wir stellen ein» με κουμπί «Jetzt bewerben» που στέλνει e-mail σε εσάς. Όταν βρείτε άτομο, πατήστε «Απόκρυψη».'},
+ set:{help:'<b>Στοιχεία:</b> τα στοιχεία επικοινωνίας και τα στοιχεία της εταιρείας για το Impressum. Γράψτε και πατήστε «Δημοσίευση».'}
+};
+var DE='<p class="hint lang">Τα κείμενα φαίνονται στη <b>γερμανική</b> σελίδα — γράψτε τα στα γερμανικά. Τα αγγλικά στο τέλος είναι προαιρετικά: αν μείνουν κενά, η αγγλική σελίδα δείχνει τα γερμανικά.</p>';
+var FORMS={
+ gallery:{title:['Νέα φωτογραφία','Αλλαγή φωτογραφίας'],f:[
+  {k:'photo',type:'photo',label:'Φωτογραφία *'},
+  {k:'cap',label:'Λεζάντα <em>(1–3 λέξεις, γερμανικά)</em>',ph:'π.χ. Bodenplatte',max:60},
+  {k:'alt',label:'Τι δείχνει; <em>(προαιρετικό — βοηθά τη Google)</em>',ph:'π.χ. Bewehrung einer Bodenplatte in Saarbrücken',max:160},
+  {k:'show',type:'show',label:'Να φαίνεται στη σελίδα'}],
+  en:[{k:'cape',label:'Caption',max:60},{k:'alte',label:'What it shows',max:160}]},
+ projects:{title:['Νέο έργο','Αλλαγή έργου'],f:[
+  {k:'imgs',type:'photos',label:'Φωτογραφίες <em>(έως 4)</em>'},
+  {k:'t',label:'Όνομα έργου *',ph:'π.χ. Neubau Wohnanlage Saarbrücken',max:140,req:1},
+  {k:'txt',type:'area',label:'Λίγα λόγια για το έργο',ph:'π.χ. Bewehrung der Bodenplatte und der Decken für eine Wohnanlage mit 40 Wohnungen.',max:1200},
+  {k:'loc',label:'Τοποθεσία',ph:'π.χ. Saarbrücken',max:100},
+  {k:'type',label:'Είδος κτιρίου',ph:'π.χ. Wohnanlage',max:100},
+  {k:'part',label:'Η δουλειά μας',ph:'Bewehrungsarbeiten',max:100},
+  {k:'show',type:'show',label:'Να φαίνεται στη σελίδα'}],
+  en:[{k:'te',label:'Project name',max:140},{k:'txte',type:'area',label:'A few words',max:1200},{k:'loce',label:'Location',max:100},{k:'typee',label:'Type of building',max:100},{k:'parte',label:'Our part',max:100}]},
+ jobs:{title:['Νέα θέση εργασίας','Αλλαγή θέσης'],f:[
+  {k:'t',label:'Θέση *',ph:'π.χ. Eisenflechter (m/w/d)',max:140,req:1},
+  {k:'meta',label:'Μικρή γραμμή <em>(πλήρης απασχόληση, περιοχή…)</em>',ph:'π.χ. Vollzeit · Saarland',max:80},
+  {k:'txt',type:'area',label:'Περιγραφή',ph:'π.χ. Wir suchen erfahrene Eisenflechter für Baustellen im Saarland. Führerschein Klasse B von Vorteil.',max:2000},
+  {k:'show',type:'show',label:'Να φαίνεται στη σελίδα'}],
+  en:[{k:'te',label:'Position',max:140},{k:'metae',label:'Short line',max:80},{k:'txte',type:'area',label:'Description',max:2000}]}
+};
+
+/* ---------- login ---------- */
+if(TRIAL)$('trialnote').hidden=false;
+async function tryLogin(p,quiet){
+ if(TRIAL){if(await sha(p)!==HASH){if(!quiet)$('lgerr').textContent='Λάθος κωδικός — δοκιμάστε ξανά';return false}}
+ else{try{var r=await fetch('/api/save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({pass:p,action:'login'})});if(!r.ok){if(!quiet)$('lgerr').textContent=r.status===401?'Λάθος κωδικός — δοκιμάστε ξανά':'Δεν υπάρχει σύνδεση — δοκιμάστε σε λίγο';return false}}catch(e){if(!quiet)$('lgerr').textContent='Δεν υπάρχει σύνδεση στο ίντερνετ';return false}}
+ PASS=p;try{sessionStorage.setItem('kb-pass',p)}catch(e){}if($('rem').checked)ls('kb-pass-keep',p);await start();return true}
+$('lgf').addEventListener('submit',function(e){e.preventDefault();$('lgerr').textContent='';tryLogin($('pass').value.trim())});
+$('logout').addEventListener('click',function(){try{sessionStorage.removeItem('kb-pass')}catch(e){}ls('kb-pass-keep',null);location.reload()});
+(function(){var p=null;try{p=sessionStorage.getItem('kb-pass')}catch(e){}p=p||ls('kb-pass-keep');if(p)tryLogin(p,true)})();
+
+/* ---------- load / state ---------- */
+function norm(c){c.contact=c.contact||{};c.legal=c.legal||{};['projects','gallery','jobs'].forEach(function(k){c[k]=c[k]||[]});return c}
+async function loadPublished(){
+ if(TRIAL){var t=null;try{t=JSON.parse(ls(LST)||'null')}catch(e){}return norm(t&&t.gallery?t:clone(baked))}
+ try{var r=await fetch('/api/content',{cache:'no-store'});if(r.ok){var c=await r.json();if(c&&c.gallery&&(!baked.updated||c.updated>=baked.updated))return norm(c)}}catch(e){}
+ return norm(clone(baked))}
+async function start(){
+ $('login').hidden=true;$('app').hidden=false;
+ PUB=await loadPublished();
+ var w=null;try{w=JSON.parse(ls(LSW)||'null')}catch(e){}
+ C=norm((w&&w.base===PUB.updated&&w.c)?w.c:clone(PUB));
+ if(ls('kb-help-x'))$('help').hidden=true;
+ fillSet();render();status()}
+function keep(){if(!ls(LSW,JSON.stringify({base:PUB.updated,c:C})))toast('Η συσκευή δεν έχει χώρο για πρόχειρο — δημοσιεύστε σύντομα');status()}
+function changes(){if(!C||!PUB)return 0;var n=0;
+ ['projects','gallery','jobs'].forEach(function(k){var a={},b={};PUB[k].forEach(function(x){a[x.id]=JSON.stringify(x)});C[k].forEach(function(x){b[x.id]=1;if(a[x.id]!==JSON.stringify(x))n++});Object.keys(a).forEach(function(i){if(!b[i])n++});
+  if(!n&&JSON.stringify(C[k].map(function(x){return x.id}))!==JSON.stringify(PUB[k].map(function(x){return x.id})))n++});
+ if(JSON.stringify(C.contact)!==JSON.stringify(PUB.contact)||JSON.stringify(C.legal)!==JSON.stringify(PUB.legal))n++;return n}
+function status(){var n=changes(),s=$('bars'),b=$('publish');
+ if(!n){s.innerHTML='<span class="dot"></span>Όλα δημοσιευμένα<small>'+(TRIAL?'Δοκιμή: οι αλλαγές φαίνονται μόνο σε αυτή τη συσκευή':'Η σελίδα δείχνει ό,τι βλέπετε εδώ')+'</small>';b.disabled=true}
+ else{s.innerHTML='<span class="dot w"></span>'+n+(n===1?' αλλαγή περιμένει':' αλλαγές περιμένουν')+'<small>Πατήστε «Δημοσίευση» για να φανούν στη σελίδα</small>';b.disabled=false}}
+
+/* ---------- lists ---------- */
+function render(){
+ var cnt={gallery:C.gallery.length,projects:C.projects.length,jobs:C.jobs.length};
+ d.querySelectorAll('#tabs button').forEach(function(b){var i=b.querySelector('i');if(i)i.textContent=cnt[b.dataset.k];b.classList.toggle('on',b.dataset.k===tab)});
+ $('helpt').innerHTML=TAB[tab].help;
+ $('pane-set').hidden=tab!=='set';$('pane-list').hidden=tab==='set';if(tab==='set')return;
+ $('addt').textContent=TAB[tab].add;$('addmany').hidden=tab!=='gallery';$('add').classList.toggle('sm',tab==='gallery');
+ var L=C[tab],pub={};PUB[tab].forEach(function(x){pub[x.id]=JSON.stringify(x)});
+ if(!L.length){$('list').innerHTML='<div class="empty">'+TAB[tab].empty+'</div>';return}
+ $('list').className='list'+(tab==='gallery'?' grid':'');
+ $('list').innerHTML=L.map(function(x){var hid=x.show===false,chg=pub[x.id]!==JSON.stringify(x);
+  var im=tab==='gallery'?x:(x.imgs&&x.imgs[0]);var title=tab==='gallery'?(x.cap||'(χωρίς λεζάντα)'):(x.t||'(χωρίς τίτλο)');
+  var meta=tab==='projects'?[x.loc,x.type,((x.imgs||[]).length||0)+' φωτ.'].filter(Boolean).join(' · '):tab==='jobs'?(x.meta||''):'';
+  var bd=hid?'<span class="bd hid">Κρυμμένο</span>':'<span class="bd">Φαίνεται</span>';if(chg)bd+='<span class="bd new">'+(pub[x.id]?'Αλλαγή':'Νέο')+' — δεν δημοσιεύτηκε</span>';
+  return '<div class="item'+(hid?' off':'')+'" data-id="'+esc(x.id)+'">'+(tab==='jobs'?'':'<div class="thumb">'+(thumb(im)?'<img src="'+esc(thumb(im))+'" alt="" loading="lazy">':'')+'</div>')+
+   '<div><div class="it-t">'+esc(title)+'</div>'+(meta?'<div class="it-m">'+esc(meta)+'</div>':'')+'<div class="badges">'+bd+'</div></div>'+
+   '<div class="acts"><button class="ed" data-a="edit">Αλλαγή</button><button data-a="up" aria-label="Πιο πάνω">↑</button><button data-a="down" aria-label="Πιο κάτω">↓</button><button data-a="vis">'+(hid?'Εμφάνιση':'Απόκρυψη')+'</button><button class="dl" data-a="del" aria-label="Διαγραφή">Διαγραφή</button></div></div>'}).join('')}
+d.querySelectorAll('#tabs button').forEach(function(b){b.addEventListener('click',function(){tab=b.dataset.k;render()})});
+$('home').addEventListener('click',function(e){e.preventDefault();tab='gallery';render();scrollTo({top:0,behavior:'smooth'})});
+$('helpx').addEventListener('click',function(){$('help').hidden=true;ls('kb-help-x','1')});
+$('list').addEventListener('click',async function(e){var b=e.target.closest('button[data-a]');if(!b)return;var L=C[tab],id=b.closest('.item').dataset.id,i=L.findIndex(function(x){return x.id===id}),x=L[i],a=b.dataset.a;
+ if(a==='edit')openSheet(i);
+ else if(a==='up'&&i>0){L.splice(i-1,0,L.splice(i,1)[0]);keep();render()}
+ else if(a==='down'&&i<L.length-1){L.splice(i+1,0,L.splice(i,1)[0]);keep();render()}
+ else if(a==='vis'){x.show=x.show===false?true:false;keep();render();toast(x.show===false?'Κρύφτηκε — πατήστε «Δημοσίευση»':'Θα φαίνεται — πατήστε «Δημοσίευση»')}
+ else if(a==='del'){if(await ask('Διαγραφή;','Θα σβηστεί από τη λίστα. Αν θέλετε απλώς να μη φαίνεται, πατήστε «Απόκρυψη».','Διαγραφή')){L.splice(i,1);keep();render()}}});
+
+/* ---------- photos: shrink on the device, then upload ---------- */
+function loadImg(file){return new Promise(function(res,rej){var u=URL.createObjectURL(file),im=new Image();im.onload=function(){res(im)};im.onerror=function(){rej(new Error('img'))};im.src=u})}
+async function shrink(file,max,q){var im=await loadImg(file),w=im.naturalWidth,h=im.naturalHeight,s=Math.min(1,max/Math.max(w,h));w=Math.round(w*s);h=Math.round(h*s);
+ var cv=d.createElement('canvas');cv.width=w;cv.height=h;cv.getContext('2d').drawImage(im,0,0,w,h);
+ var blob=await new Promise(function(r){cv.toBlob(r,'image/webp',q)});if(!blob||blob.type!=='image/webp')blob=await new Promise(function(r){cv.toBlob(r,'image/jpeg',q)});
+ return {blob:blob,w:w,h:h,cv:cv}}
+async function upload(file){
+ if(TRIAL){var r=await shrink(file,1000,.72);return {src:r.cv.toDataURL('image/jpeg',.72),w:r.w,h:r.h}}
+ var r=await shrink(file,1600,.82);
+ var res=await fetch('/api/upload',{method:'POST',headers:{'x-pass':PASS,'content-type':r.blob.type},body:r.blob});
+ if(!res.ok)throw new Error('upload '+res.status);var j=await res.json();return {src:j.url,w:r.w,h:r.h}}
+$('many').addEventListener('change',async function(){var fs=[].slice.call(this.files||[]);this.value='';if(!fs.length)return;
+ var pr=$('mprog');pr.hidden=false;var done=0,bad=0,add=[];
+ for(var i=0;i<fs.length;i++){try{var u=await upload(fs[i]);add.push({id:uid('g'),src:u.src,w:u.w,h:u.h,cap:'',cape:'',alt:'',alte:''})}catch(e){bad++}done++;pr.firstChild.style.width=(done/fs.length*100)+'%'}
+ pr.hidden=true;pr.firstChild.style.width='0';C.gallery=add.concat(C.gallery);keep();render();
+ toast(add.length+(add.length===1?' φωτογραφία προστέθηκε':' φωτογραφίες προστέθηκαν')+' στην αρχή'+(bad?' · '+bad+' δεν ανέβηκαν':'')+' — πατήστε «Δημοσίευση»')});
+
+/* ---------- editor sheet ---------- */
+function field(f,v){
+ if(f.type==='show')return '<div class="fs"><div class="tog"><div><b>'+f.label+'</b><small>Κλείστε το για να το κρύψετε χωρίς να το σβήσετε</small></div><label class="sw"><input type="checkbox" data-k="show"'+(v===false?'':' checked')+'><i></i></label></div></div>';
+ if(f.type==='photo')return '<div class="fs"><h3>'+f.label+'</h3><div class="photo" id="ph1"></div><div class="ph-btns"><label>Από το κινητό / υπολογιστή<input type="file" id="f1" accept="image/*"></label></div><div class="prog" id="p1" hidden><i></i></div></div>';
+ if(f.type==='photos')return '<div class="fs"><h3>'+f.label+'</h3><div class="phs" id="phs"></div><div class="ph-btns"><label id="addph">+ Φωτογραφία<input type="file" id="fN" accept="image/*" multiple></label></div><div class="prog" id="pN" hidden><i></i></div></div>';
+ var inp=f.type==='area'?'<textarea data-k="'+f.k+'" maxlength="'+(f.max||500)+'" placeholder="'+esc(f.ph||'')+'">'+esc(v||'')+'</textarea>':'<input type="text" data-k="'+f.k+'" maxlength="'+(f.max||200)+'" placeholder="'+esc(f.ph||'')+'" value="'+esc(v||'')+'">';
+ return '<label class="f"><span>'+f.label+'</span>'+inp+'</label>'}
+function openSheet(i){var F=FORMS[tab];edIdx=i;ed=i>=0?clone(C[tab][i]):(tab==='gallery'?{id:uid('g'),src:'',w:0,h:0}:tab==='projects'?{id:uid('p'),imgs:[],part:'Bewehrungsarbeiten',parte:'Reinforcement works'}:{id:uid('j')});
+ $('shT').textContent=F.title[i>=0?1:0];
+ var main=F.f.filter(function(f){return f.type==='photo'||f.type==='photos'}).map(function(f){return field(f)}).join('');
+ var txt=F.f.filter(function(f){return !f.type||f.type==='area'}).map(function(f){return field(f,ed[f.k])}).join('');
+ var show=F.f.filter(function(f){return f.type==='show'}).map(function(f){return field(f,ed.show)}).join('');
+ var en=F.en.map(function(f){return field(f,ed[f.k])}).join('');
+ $('form').innerHTML=main+(txt?'<div class="fs">'+DE+txt+'</div>':'')+show+'<div class="fs"><details class="en"><summary>Αγγλικά (προαιρετικό)</summary>'+en+'</details></div>'+(i>=0?'<button class="btn btn-x wide" id="shdel" type="button">Διαγραφή</button>':'');
+ drawPhotos();
+ var f1=$('f1');if(f1)f1.addEventListener('change',async function(){var f=this.files[0];this.value='';if(!f)return;$('p1').hidden=false;$('p1').firstChild.style.width='40%';try{var u=await upload(f);ed.src=u.src;ed.w=u.w;ed.h=u.h;delete ed.big;drawPhotos()}catch(e){toast('Η φωτογραφία δεν ανέβηκε — δοκιμάστε ξανά')}$('p1').hidden=true});
+ var fN=$('fN');if(fN)fN.addEventListener('change',async function(){var fs=[].slice.call(this.files||[]);this.value='';var room=4-ed.imgs.length;if(room<=0){toast('Έως 4 φωτογραφίες ανά έργο');return}fs=fs.slice(0,room);$('pN').hidden=false;
+  for(var k=0;k<fs.length;k++){try{var u=await upload(fs[k]);ed.imgs.push({src:u.src,w:u.w,h:u.h})}catch(e){toast('Μία φωτογραφία δεν ανέβηκε')}$('pN').firstChild.style.width=((k+1)/fs.length*100)+'%'}$('pN').hidden=true;$('pN').firstChild.style.width='0';drawPhotos()});
+ var dl=$('shdel');if(dl)dl.addEventListener('click',async function(){if(await ask('Διαγραφή;','Θα σβηστεί από τη λίστα.','Διαγραφή')){C[tab].splice(edIdx,1);keep();closeSheet();render()}});
+ var sh=$('sheet');sh.hidden=false;requestAnimationFrame(function(){sh.classList.add('open')});sh.scrollTop=0}
+function drawPhotos(){
+ var p=$('ph1');if(p)p.innerHTML=ed.src?'<img src="'+esc(thumb(ed))+'" alt="">':'<div class="ph-e">Πατήστε το κουμπί από κάτω<br>για να διαλέξετε φωτογραφία</div>';
+ var g=$('phs');if(g){g.innerHTML=ed.imgs.length?ed.imgs.map(function(im,k){return '<div class="phi"><img src="'+esc(thumb(im))+'" alt=""><div><button type="button" data-m="-1" data-i="'+k+'" aria-label="Πιο πάνω">↑</button><button type="button" data-m="1" data-i="'+k+'" aria-label="Πιο κάτω">↓</button><button type="button" class="rm" data-r="'+k+'">Αφαίρεση</button></div></div>'}).join(''):'<div class="empty" style="padding:18px">Καμία φωτογραφία ακόμα</div>';
+  $('addph').hidden=ed.imgs.length>=4;
+  g.querySelectorAll('button').forEach(function(b){b.onclick=function(){if(b.dataset.r!=null){ed.imgs.splice(+b.dataset.r,1)}else{var i=+b.dataset.i,j=i+(+b.dataset.m);if(j<0||j>=ed.imgs.length)return;ed.imgs.splice(j,0,ed.imgs.splice(i,1)[0])}drawPhotos()}})}}
+function closeSheet(){var sh=$('sheet');sh.classList.remove('open');setTimeout(function(){sh.hidden=true;$('form').innerHTML=''},300);ed=null}
+$('shx').addEventListener('click',closeSheet);$('shcancel').addEventListener('click',closeSheet);
+$('shsave').addEventListener('click',function(){
+ $('form').querySelectorAll('[data-k]').forEach(function(el){var k=el.dataset.k;if(k==='show'){ed.show=el.checked?true:false}else{ed[k]=el.value.trim()}});
+ if(ed.show===true)delete ed.show;
+ if(tab==='gallery'&&!ed.src){toast('Διαλέξτε πρώτα φωτογραφία');return}
+ var req=FORMS[tab].f.filter(function(f){return f.req})[0];if(req&&!ed[req.k]){toast('Συμπληρώστε το «'+req.label.replace(/<[^>]+>/g,'').replace(' *','')+'»');return}
+ if(edIdx>=0)C[tab][edIdx]=ed;else C[tab].unshift(ed);
+ keep();closeSheet();render();toast('Αποθηκεύτηκε — πατήστε «Δημοσίευση» για να φανεί')});
+$('add').addEventListener('click',function(){openSheet(-1)});
+
+/* ---------- settings ---------- */
+function getP(p){var a=p.split('.');return (C[a[0]]||{})[a[1]]||''}
+function fillSet(){d.querySelectorAll('#pane-set [data-p]').forEach(function(el){el.value=getP(el.dataset.p);el.oninput=function(){var a=el.dataset.p.split('.');C[a[0]][a[1]]=el.value.trim();keep()}})}
+$('undo').addEventListener('click',async function(){if(!await ask('Αναίρεση;','Η σελίδα θα γυρίσει όπως ήταν πριν από την τελευταία δημοσίευση.','Αναίρεση'))return;
+ if(TRIAL){toast('Στη δοκιμή δεν υπάρχει προηγούμενη έκδοση — χρησιμοποιήστε «Ακύρωση αλλαγών»');return}
+ try{var r=await fetch('/api/save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({pass:PASS,action:'undo'})});var j=await r.json();if(!r.ok)throw 0;PUB=norm(j.content);C=clone(PUB);ls(LSW,null);fillSet();render();status();toast('Έγινε αναίρεση')}catch(e){toast('Δεν υπάρχει προηγούμενη δημοσίευση')}});
+$('discard').addEventListener('click',async function(){if(!await ask('Ακύρωση αλλαγών;','Οι αλλαγές που δεν δημοσιεύτηκαν θα χαθούν.','Ακύρωση αλλαγών'))return;C=clone(PUB);ls(LSW,null);fillSet();render();status();toast('Οι αλλαγές ακυρώθηκαν')});
+
+/* ---------- publish ---------- */
+$('publish').addEventListener('click',async function(){var b=this;b.disabled=true;b.textContent='Δημοσίευση…';
+ var out=clone(C);out.updated=new Date().toISOString();
+ try{
+  if(TRIAL){if(!ls(LST,JSON.stringify(out)))throw new Error('space');}
+  else{var r=await fetch('/api/save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({pass:PASS,action:'publish',content:out})});if(!r.ok)throw new Error('save '+r.status);out.updated=(await r.json()).when||out.updated}
+  PUB=out;C=clone(out);ls(LSW,null);render();toast(TRIAL?'Δημοσιεύτηκε στη δοκιμή — ανοίξτε «Η σελίδα μου»':'Δημοσιεύτηκε! Η σελίδα άλλαξε.')}
+ catch(e){toast(e.message==='space'?'Η δοκιμή δεν χωράει άλλες φωτογραφίες σε αυτή τη συσκευή':'Δεν δημοσιεύτηκε — ελέγξτε τη σύνδεση και δοκιμάστε ξανά')}
+ b.textContent='Δημοσίευση';status()});
+addEventListener('beforeunload',function(e){if(C&&changes()){e.preventDefault();e.returnValue=''}});
+})();
+</script>
+</body>
+</html>

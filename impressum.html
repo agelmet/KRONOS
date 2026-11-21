@@ -398,16 +398,24 @@ html.js .rv.in{opacity:1;transform:none}
 <a class="btn btn-ln" href="index.html" style="margin-left:auto;padding:11px 18px;font-size:14.5px">← Zur Startseite</a></div></header>
 <main class="lg"><div class="wrap"><span class="k">KRONOS BAU GmbH</span><h1>Impressum</h1>
 <h2>Angaben gemäß § 5 DDG</h2>
-<p>KRONOS BAU GmbH<br>Anschrift: wird ergänzt</p><p class="todo">Wird vor der Veröffentlichung ergänzt.</p>
-<h2>Vertreten durch</h2><p>Geschäftsführung: wird ergänzt</p>
-<h2>Kontakt</h2><p>E-Mail: <a href="mailto:info@kronos-bau.de">info@kronos-bau.de</a><br>Telefon: wird ergänzt</p>
-<h2>Registereintrag</h2><p>Eintragung im Handelsregister.<br>Registergericht: wird ergänzt<br>Registernummer: HRB wird ergänzt</p>
-<h2>Umsatzsteuer-ID</h2><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: wird ergänzt</p>
+<p>KRONOS BAU GmbH<br><span data-kp="legal.addr">wird ergänzt</span></p><p class="todo" id="kp-todo">Wird vor der Veröffentlichung ergänzt.</p>
+<h2>Vertreten durch</h2><p>Geschäftsführung: <span data-kp="legal.gf">wird ergänzt</span></p>
+<h2>Kontakt</h2><p>E-Mail: <a data-kp-mail href="mailto:info@kronos-bau.de">info@kronos-bau.de</a><br>Telefon: <span data-kp="contact.phone">wird ergänzt</span></p>
+<h2>Registereintrag</h2><p>Eintragung im Handelsregister.<br>Registergericht: <span data-kp="legal.court">wird ergänzt</span><br>Registernummer: <span data-kp="legal.hrb">wird ergänzt</span></p>
+<h2>Umsatzsteuer-ID</h2><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: <span data-kp="legal.ustid">wird ergänzt</span></p>
 <h2>Verbraucherstreitbeilegung</h2><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 <hr><div lang="en">
 <h2>Legal notice (English summary)</h2>
-<p>KRONOS BAU GmbH – company details (address, managing director, commercial register number and VAT ID) will be added before publication. Contact: <a href="mailto:info@kronos-bau.de">info@kronos-bau.de</a>.</p></div></div></main>
+<p>KRONOS BAU GmbH – company details are listed above in German. Contact: <a data-kp-mail href="mailto:info@kronos-bau.de">info@kronos-bau.de</a>.</p></div></div></main>
 <footer class="ft"><div class="wrap"><div class="g"><a class="brand" href="index.html" style="--mkb:#fff;--mkr:#0B1424"><svg class="mk" aria-hidden="true" style="width:46px;height:40px"><use href="#km"/></svg><span class="wm"><b>KRONOS</b><i><em>BAU</em> GmbH</i></span></a>
 <nav><a href="index.html">Startseite</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav></div>
 <div class="bt"><span>© 2026 KRONOS BAU GmbH</span><span class="credit"><a href="https://advonmedia.com" target="_blank" rel="noopener">Designed by <b class="adv">Advon Media</b></a></span></div></div></footer>
+<script id="kp-imp">/* Impressum: company details from the panel («Στοιχεία εταιρείας») — live: /api/content · draft: the trial on this device */
+(function(){var d=document,h=location.hostname,TRIAL=/drafts\.advonmedia\.com|github\.io|localhost|127\.0\.0\.1/.test(h);
+function fill(c){if(!c)return;var all=true;d.querySelectorAll('[data-kp]').forEach(function(el){var p=el.getAttribute('data-kp').split('.'),v=c[p[0]]&&c[p[0]][p[1]];el.textContent=v||'wird ergänzt';if(!v&&p[0]==='legal'&&p[1]!=='ustid')all=false});
+ var t=d.getElementById('kp-todo');if(t)t.hidden=all;
+ var m=c.contact&&c.contact.email;if(m)d.querySelectorAll('[data-kp-mail]').forEach(function(a){a.href='mailto:'+m;a.textContent=m})}
+if(TRIAL){try{fill(JSON.parse(localStorage.getItem('kb-admin-trial')||'null'))}catch(e){}}
+else fetch('/api/content',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(fill).catch(function(){})})();
+</script>
 </body></html>

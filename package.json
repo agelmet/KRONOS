@@ -1,0 +1,7 @@
+{
+  "name": "kronos-bau",
+  "private": true,
+  "version": "1.0.0",
+  "description": "KRONOS BAU GmbH — site + phone panel (Netlify Functions + Blobs, edits never deploy)",
+  "dependencies": { "@netlify/blobs": "^11.0.3" }
+}
