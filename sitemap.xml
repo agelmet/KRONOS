@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://kronos-bau.de/</loc>
-    <lastmod>2026-11-20</lastmod><xhtml:link rel="alternate" hreflang="de" href="https://kronos-bau.de/"/><xhtml:link rel="alternate" hreflang="en" href="https://kronos-bau.de/en"/><xhtml:link rel="alternate" hreflang="x-default" href="https://kronos-bau.de/"/><priority>1.0</priority></url>
+    <lastmod>2026-11-23</lastmod><xhtml:link rel="alternate" hreflang="de" href="https://kronos-bau.de/"/><xhtml:link rel="alternate" hreflang="en" href="https://kronos-bau.de/en"/><xhtml:link rel="alternate" hreflang="x-default" href="https://kronos-bau.de/"/><priority>1.0</priority></url>
   <url><loc>https://kronos-bau.de/en</loc>
-    <lastmod>2026-11-20</lastmod><xhtml:link rel="alternate" hreflang="de" href="https://kronos-bau.de/"/><xhtml:link rel="alternate" hreflang="en" href="https://kronos-bau.de/en"/><xhtml:link rel="alternate" hreflang="x-default" href="https://kronos-bau.de/"/><priority>0.8</priority></url>
+    <lastmod>2026-11-23</lastmod><xhtml:link rel="alternate" hreflang="de" href="https://kronos-bau.de/"/><xhtml:link rel="alternate" hreflang="en" href="https://kronos-bau.de/en"/><xhtml:link rel="alternate" hreflang="x-default" href="https://kronos-bau.de/"/><priority>0.8</priority></url>
   <url><loc>https://kronos-bau.de/impressum</loc>
-    <lastmod>2026-11-20</lastmod><priority>0.2</priority></url>
+    <lastmod>2026-11-23</lastmod><priority>0.2</priority></url>
   <url><loc>https://kronos-bau.de/datenschutz</loc>
-    <lastmod>2026-11-20</lastmod><priority>0.2</priority></url>
+    <lastmod>2026-11-23</lastmod><priority>0.2</priority></url>
 </urlset>
